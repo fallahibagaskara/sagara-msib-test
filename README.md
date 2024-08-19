@@ -19,7 +19,9 @@ Sistem manajemen inventaris sebuah toko baju. Sistem ini dapat menangani pembaru
    cd sagara-msib-test
    ```
 2.  `Install Dependensi:`
+```bash
 npm install
+```
 3. `Rename file .example.env menjadi .env di root project dengan konfigurasi berikut:`
 ```bash 
 PORT=3000
