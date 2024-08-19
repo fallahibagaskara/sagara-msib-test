@@ -26,7 +26,9 @@ PORT=3000
 MONGODB_URI=mongodb://localhost:27017/sagara
 ```
 4. `Jalankan Aplikasi:`
+```bash 
 npm start
+```
 
 ## **Endpoint API**
 `GET /api/clothes`
