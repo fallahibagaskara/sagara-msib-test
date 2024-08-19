@@ -15,8 +15,8 @@ Sistem manajemen inventaris sebuah toko baju. Sistem ini dapat menangani pembaru
 ## **Installasi**
 1. `Clone repositori:`
 ```bash
-   git clone <URL_REPOSITORY>
-   cd <REPOSITORY_NAME>
+   git clone https://github.com/fallahibagaskara/sagara-msib-test.git
+   cd sagara-msib-test
    ```
 2.  `Install Dependensi:`
 npm install
