@@ -2,28 +2,61 @@
 
 Backend Project-based Test
 
-Deskripsi
-Anda diminta untuk mengembangkan backend untuk sistem manajemen inventaris sebuah toko baju. Sistem ini harus dapat menangani pembaruan stok baju, penambahan baju baru, dan pencarian baju berdasarkan warna dan ukuran.
+## **Deskripsi**
+Sistem manajemen inventaris sebuah toko baju. Sistem ini dapat menangani pembaruan stok baju, penambahan baju baru, dan pencarian baju berdasarkan warna dan ukuran.
 
-Spesifikasi (WAJIB)
-- Sistem harus dapat menangani operasi CRUD untuk baju.
-- Setiap baju memiliki atribut warna, ukuran, harga, dan stok.
-- Sistem harus dapat mencari baju berdasarkan warna dan ukuran.
-- Sistem harus dapat menambahkan stok baju.
-- Sistem harus dapat mengurangi stok baju.
-- Sistem harus dapat menampilkan semua baju yang tersedia.
+## **Struktur Project**
+- `utils/connection.js`: Koneksi ke database MongoDB.
+- `controller/clothes.js`: Controller yang mengelola logika aplikasi terkait pakaian.
+- `models/clothes.js`: Model yang menangani operasi database untuk koleksi pakaian.
+- `index.js`: Titik masuk aplikasi, mengatur server dan routing.
+- `routes/clothes.js`: Routing untuk endpoint pakaian,
 
-Spesifikasi (Optional, mendapat nilai tambahan jika dikerjakan)
-- Sistem dapat menampilkan semua baju yang stoknya habis.
-- Sistem dapat menampilkan semua baju yang stoknya kurang dari 5.
+## **Installasi**
+1. `Clone repositori:`
+```bash
+   git clone <URL_REPOSITORY>
+   cd <REPOSITORY_NAME>
+   ```
+2.  `Install Dependensi:`
+npm install
+3. `Rename file .example.env menjadi .env di root project dengan konfigurasi berikut:`
+PORT=3000
+MONGODB_URI=mongodb://localhost:27017/sagara
+4. `Jalankan Aplikasi:`
+npm start
 
-Tech Stack
-Dibebaskan untuk menggunakan tech stack apapun yang menurut Anda cocok untuk menyelesaikan tugas ini. Recommended stack: Node.js, Express.js, MongoDB or Go, Gin/Echo, Gorm, PostgreSQL.
+## **Endpoint API**
+`GET /api/clothes`
+Mengambil semua pakaian dan opsi query untuk mencari berdasarkan id, color, dan size.
+Menggunakan query parameters untuk mencari pakaian berdasarkan id/warna/ukuran:
+- Mencari berdasarkan ID: ```bash http://localhost:3000/api/clothes?id=6bdau728jab63b862b6```
+- Mencari berdasarkan Warna: ```bash http://localhost:3000/api/clothes?color=red```
+- Mencari berdasarkan Ukuran: ```bash http://localhost:3000/api/clothes?size=M```
 
-Key points
-- Penerapan SOLID Principles menjadi nilai plus.
-- Penerapan unit testing menjadi nilai plus.
-- Penerapan Depedency Injection menjadi nilai plus.
+`GET /api/clothes/out-of-stock`
+Mengambil pakaian yang kehabisan stok.
 
-Deliverables
-Silakan fork repository ini dan submit link repository hasil pengerjaan Anda ke https://bit.ly/study-case-backend-developer-msib
+`GET /api/clothes/low-stock`
+Mengambil pakaian dengan stok kurang dari 5.
+
+`POST /api/clothes/:id/add-stock`
+Menambahkan stok untuk pakaian dengan ID yang ditentukan. Body request harus berisi amount (jumlah stok yang ingin ditambahkan).
+
+`POST /api/clothes/:id/reduce-stock`
+Mengurangi stok untuk pakaian dengan ID yang ditentukan. Body request harus berisi amount (jumlah stok yang ingin dikurangi).
+
+`POST /api/clothes`
+Menambahkan pakaian baru ke database. Body request harus berisi data pakaian.
+
+`PUT /api/clothes/:id`
+Memperbarui data pakaian dengan ID yang ditentukan. Body request dapat berisi color, size, price, dan stock.
+
+`DELETE /api/clothes/:id`
+Menghapus pakaian dengan ID yang ditentukan.
+
+## **Penggunaan**
+Aplikasi ini menggunakan Express sebagai server HTTP dan MongoDB untuk penyimpanan data. Anda dapat melakukan request HTTP menggunakan alat seperti curl, Postman, atau klien HTTP lainnya.
+
+Berikut ini adalah contoh request menggunakan postman: 
+https://web.postman.co/workspace/Clothes~0324197e-67e2-46a0-8a7d-a9ae10c87da6/collection/25926003-e60a69ea-e007-4eb8-8525-b803951ebec7
