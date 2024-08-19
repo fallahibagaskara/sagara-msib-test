@@ -73,5 +73,12 @@ Menghapus pakaian dengan ID yang ditentukan.
 ## **Penggunaan**
 Aplikasi ini menggunakan Express sebagai server HTTP dan MongoDB untuk penyimpanan data. Anda dapat melakukan request HTTP menggunakan alat seperti curl, Postman, atau klien HTTP lainnya.
 
-Berikut ini adalah contoh request menggunakan postman: 
+
+Berikut ini adalah contoh request menggunakan postman ke api yang telah siap digunakan: 
+```bash 
+https://sagara-clothes-api.vercel.app/api/clothes/
+```
+```bash 
 https://web.postman.co/workspace/Clothes~0324197e-67e2-46a0-8a7d-a9ae10c87da6/collection/25926003-e60a69ea-e007-4eb8-8525-b803951ebec7
+```
+
