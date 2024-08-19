@@ -86,18 +86,25 @@ class ClothesController {
 
             const currentCloth = await ClothesModel.findOne(id);
 
-            if (currentCloth.stock < amount) {
+            if (!currentCloth) {
                 return res.status(400).json({
                     success: false,
-                    message: "Not enough stock to reduce"
+                    message: "No clothes matched the ID."
+                });
+            } else {
+                if (currentCloth.stock < amount) {
+                    return res.status(400).json({
+                        success: false,
+                        message: "Not enough stock to reduce"
+                    });
+                }
+
+                const result = await ClothesModel.update(id, { $inc: { stock: -amount } });
+                res.status(result.matchedCount > 0 ? 200 : 200).json({
+                    success: true,
+                    message: result.matchedCount > 0 ? "Stock reduced successfully." : "No clothes matched the ID."
                 });
             }
-
-            const result = await ClothesModel.update(id, { $inc: { stock: -amount } });
-            res.status(result.matchedCount > 0 ? 200 : 200).json({
-                success: true,
-                message: result.matchedCount > 0 ? "Stock reduced successfully." : "No clothes matched the ID."
-            });
         } catch (err) {
             console.error("Error reducing stock:", err);
             res.status(500).send("Failed to update stock in the Database");
