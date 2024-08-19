@@ -21,8 +21,10 @@ Sistem manajemen inventaris sebuah toko baju. Sistem ini dapat menangani pembaru
 2.  `Install Dependensi:`
 npm install
 3. `Rename file .example.env menjadi .env di root project dengan konfigurasi berikut:`
+```bash 
 PORT=3000
 MONGODB_URI=mongodb://localhost:27017/sagara
+```
 4. `Jalankan Aplikasi:`
 npm start
 
@@ -30,9 +32,18 @@ npm start
 `GET /api/clothes`
 Mengambil semua pakaian dan opsi query untuk mencari berdasarkan id, color, dan size.
 Menggunakan query parameters untuk mencari pakaian berdasarkan id/warna/ukuran:
-- Mencari berdasarkan ID: ```bash http://localhost:3000/api/clothes?id=6bdau728jab63b862b6```
-- Mencari berdasarkan Warna: ```bash http://localhost:3000/api/clothes?color=red```
-- Mencari berdasarkan Ukuran: ```bash http://localhost:3000/api/clothes?size=M```
+- Mencari berdasarkan ID: 
+```bash 
+http://localhost:3000/api/clothes?id=6bdau728jab63b862b6
+```
+- Mencari berdasarkan Warna: 
+```bash 
+http://localhost:3000/api/clothes?color=red
+```
+- Mencari berdasarkan Ukuran: 
+```bash 
+http://localhost:3000/api/clothes?size=M
+```
 
 `GET /api/clothes/out-of-stock`
 Mengambil pakaian yang kehabisan stok.
