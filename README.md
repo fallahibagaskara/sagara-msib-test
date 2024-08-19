@@ -55,10 +55,10 @@ Mengambil pakaian yang kehabisan stok.
 `GET /api/clothes/low-stock`
 Mengambil pakaian dengan stok kurang dari 5.
 
-`POST /api/clothes/:id/add-stock`
+`POST /api/clothes/add-stock/:id`
 Menambahkan stok untuk pakaian dengan ID yang ditentukan. Body request harus berisi amount (jumlah stok yang ingin ditambahkan).
 
-`POST /api/clothes/:id/reduce-stock`
+`POST /api/clothes/reduce-stock/:id`
 Mengurangi stok untuk pakaian dengan ID yang ditentukan. Body request harus berisi amount (jumlah stok yang ingin dikurangi).
 
 `POST /api/clothes`
